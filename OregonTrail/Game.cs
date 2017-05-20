@@ -4,16 +4,17 @@ namespace OregonTrail
 {
     class Game
     {
-        private IGameState state;
+        private StateStack stateStack;
 
         public void Run()
         {
-            state.Run();
+            stateStack.RunState();
         }
 
         public Game()
         {
-            state = new WelcomeState();
+            stateStack = new StateStack();
+            stateStack.Push(new WelcomeState());
         }
     }
 }
